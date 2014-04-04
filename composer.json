@@ -1,0 +1,7 @@
+{
+    "name": "webtrendi/clapp",
+    "description": "Parses command line arguments passed to a PHP script",
+    "autoload": {
+        "psr-0": {"Clapp\\": "src/"}
+    }
+}
