@@ -1,6 +1,16 @@
 {
     "name": "webtrendi/clapp",
     "description": "Parses command line arguments passed to a PHP script",
+    "keywords": ["CLI", "console", "command line", "argument parsing"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Patrick Forget",
+            "email": "patforg@webtrendi.com",
+            "homepage": "http://webtrendi.com",
+            "role": "Developer"
+        }
+    ],
     "autoload": {
         "psr-0": {"Clapp\\": "src/"}
     }
