@@ -209,7 +209,7 @@ class CommandArgumentFilter
                     $currentLongName = $this->definitions->getLongName($shortName);
 
                     if ($currentLongName === null) {
-                        throw new \InvalidArgumentException("Invalid argument name");
+                        throw new \InvalidArgumentException("Unable to find name with provided parameter ({$shortName})");
                     } //if
 
                     if (sizeof($shortNameParts) > 1) {
