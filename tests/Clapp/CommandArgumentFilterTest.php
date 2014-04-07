@@ -2,7 +2,7 @@
 /**
  * Test for CommandArgumentFilter
  *
- * @author Patrick Forget <patforg at geekpad.ca>
+ * @author Patrick Forget <patforg at webtrendi.com>
  */
 
 class TestCommandArgumentFilter extends \Clapp\CommandArgumentFilter {
@@ -10,7 +10,7 @@ class TestCommandArgumentFilter extends \Clapp\CommandArgumentFilter {
     /**
      * make parseParams publicly callable
      *
-     * @author Patrick Forget <patforg at geekpad.ca>
+     * @author Patrick Forget <patforg at webtrendi.com>
      */
     public function parseParams() {
         parent::parseParams();
@@ -21,7 +21,7 @@ class TestCommandArgumentFilter extends \Clapp\CommandArgumentFilter {
 /**
  * Test for CommandArgumentFilter
  *
- * @author Patrick Forget <patforg at geekpad.ca>
+ * @author Patrick Forget <patforg at webtrendi.com>
  */
 class CommandArgumentFilterTest extends PHPUnit_Framework_TestCase
 {
@@ -34,7 +34,7 @@ class CommandArgumentFilterTest extends PHPUnit_Framework_TestCase
     /**
      * setup some defaults
      *
-     * @author Patrick Forget <patforg at geekpad.ca>
+     * @author Patrick Forget <patforg at webtrendi.com>
      */
     public function setUp() {
         $this->defaultDefinition = new \Clapp\CommandLineArgumentDefinition(array(
@@ -53,7 +53,7 @@ class CommandArgumentFilterTest extends PHPUnit_Framework_TestCase
     /**
      * test that short name options with no values are detected
      *
-     * @author Patrick Forget <patforg at geekpad.ca>
+     * @author Patrick Forget <patforg at webtrendi.com>
      */
     public function testShortNameWithNoValueExists() {
         $argv = explode(" ", './test.php -h');
@@ -68,7 +68,7 @@ class CommandArgumentFilterTest extends PHPUnit_Framework_TestCase
     /**
      * test that long name options with no values are detected
      *
-     * @author Patrick Forget <patforg at geekpad.ca>
+     * @author Patrick Forget <patforg at webtrendi.com>
      */
     public function testLongNameWithNoValueExists() {
         $argv = explode(" ", './test.php --help');
@@ -83,7 +83,7 @@ class CommandArgumentFilterTest extends PHPUnit_Framework_TestCase
     /**
      * test that short name options with values are detected
      *
-     * @author Patrick Forget <patforg at geekpad.ca>
+     * @author Patrick Forget <patforg at webtrendi.com>
      */
     public function testShortNameWithValueSetWithEqualSignExists() {
         $argv = explode(" ", './test.php -c=8');
@@ -98,7 +98,7 @@ class CommandArgumentFilterTest extends PHPUnit_Framework_TestCase
     /**
      * test that long name options with values are detected
      *
-     * @author Patrick Forget <patforg at geekpad.ca>
+     * @author Patrick Forget <patforg at webtrendi.com>
      */
     public function testLongNameWithValueSetWithEqualSignExists() {
         $argv = explode(" ", './test.php --count=8');
@@ -113,7 +113,7 @@ class CommandArgumentFilterTest extends PHPUnit_Framework_TestCase
     /**
      * test that short name options with values are detected
      *
-     * @author Patrick Forget <patforg at geekpad.ca>
+     * @author Patrick Forget <patforg at webtrendi.com>
      */
     public function testShortNameWithValueSetWithSpaceExists() {
         $argv = explode(" ", './test.php -c 8');
@@ -128,7 +128,7 @@ class CommandArgumentFilterTest extends PHPUnit_Framework_TestCase
     /**
      * test that long name options with values are detected
      *
-     * @author Patrick Forget <patforg at geekpad.ca>
+     * @author Patrick Forget <patforg at webtrendi.com>
      */
     public function testLongNameWithValueSetWithSpaceExists() {
         $argv = explode(" ", './test.php --count 8');
@@ -144,7 +144,7 @@ class CommandArgumentFilterTest extends PHPUnit_Framework_TestCase
     /**
      * test that multiple declarations of short name options with no values are counted
      *
-     * @author Patrick Forget <patforg at geekpad.ca>
+     * @author Patrick Forget <patforg at webtrendi.com>
      */
     public function testShortNameWithNoValueCountMultipleInstanceOfParameter() {
         $argv = explode(" ", './test.php -v -v -v');
@@ -159,7 +159,7 @@ class CommandArgumentFilterTest extends PHPUnit_Framework_TestCase
     /**
      * test that multiple declarations of long name options with no values are counted
      *
-     * @author Patrick Forget <patforg at geekpad.ca>
+     * @author Patrick Forget <patforg at webtrendi.com>
      */
     public function testLongNameWithNoValueCountMultipleInstanceOfParameter() {
         $argv = explode(" ", './test.php --verbose --verbose --verbose');
@@ -174,7 +174,7 @@ class CommandArgumentFilterTest extends PHPUnit_Framework_TestCase
     /**
      * test that multiple declarations of short name options with values are captured
      *
-     * @author Patrick Forget <patforg at geekpad.ca>
+     * @author Patrick Forget <patforg at webtrendi.com>
      */
     public function testShortNameWithValueSetWithEqualSignCapturesMultipleInstanceOfParameter() {
         $argv = explode(" ", './test.php -x=me -x=you -x=them');
@@ -192,7 +192,7 @@ class CommandArgumentFilterTest extends PHPUnit_Framework_TestCase
     /**
      * test that multiple declarations of long name options with values are captured
      *
-     * @author Patrick Forget <patforg at geekpad.ca>
+     * @author Patrick Forget <patforg at webtrendi.com>
      */
     public function testLongNameWithValueSetWithEqualSignCapturesMultipleInstanceOfParameter() {
         $argv = explode(" ", './test.php --exclude=me --exclude=you --exclude=them');
@@ -210,7 +210,7 @@ class CommandArgumentFilterTest extends PHPUnit_Framework_TestCase
     /**
      * test that multiple declarations of short name options with values are captured
      *
-     * @author Patrick Forget <patforg at geekpad.ca>
+     * @author Patrick Forget <patforg at webtrendi.com>
      */
     public function testShortNameWithValueSetSpaceCapturesMultipleInstanceOfParameter() {
         $argv = explode(" ", './test.php -x me -x you -x them');
@@ -228,7 +228,7 @@ class CommandArgumentFilterTest extends PHPUnit_Framework_TestCase
     /**
      * test that multiple declarations of long name options with values are captured
      *
-     * @author Patrick Forget <patforg at geekpad.ca>
+     * @author Patrick Forget <patforg at webtrendi.com>
      */
     public function testLongNameWithValueSetSpaceCapturesMultipleInstanceOfParameter() {
         $argv = explode(" ", './test.php --exclude me --exclude you --exclude them');
@@ -246,7 +246,7 @@ class CommandArgumentFilterTest extends PHPUnit_Framework_TestCase
     /**
      * test that multiple short name options can be declared in one param
      *
-     * @author Patrick Forget <patforg at geekpad.ca>
+     * @author Patrick Forget <patforg at webtrendi.com>
      */
     public function testShortNameManyParametersAtOnce() {
         $argv = explode(" ", './test.php -vh');
@@ -264,7 +264,7 @@ class CommandArgumentFilterTest extends PHPUnit_Framework_TestCase
     /**
      * test that multiple short name options can be declared in one param
      *
-     * @author Patrick Forget <patforg at geekpad.ca>
+     * @author Patrick Forget <patforg at webtrendi.com>
      */
     public function testShortNameManyParametersAtOnceWithValueSetWithEqualSign() {
         $argv = explode(" ", './test.php -vhc=8');
@@ -285,7 +285,7 @@ class CommandArgumentFilterTest extends PHPUnit_Framework_TestCase
     /**
      * test that multiple short name options can be declared in one param
      *
-     * @author Patrick Forget <patforg at geekpad.ca>
+     * @author Patrick Forget <patforg at webtrendi.com>
      */
     public function testShortNameManyParametersAtOnceWithValueSetWithSpace() {
         $argv = explode(" ", './test.php -vhc 8');
@@ -306,7 +306,7 @@ class CommandArgumentFilterTest extends PHPUnit_Framework_TestCase
     /**
      * test that short name options with no values are not detected when not present
      *
-     * @author Patrick Forget <patforg at geekpad.ca>
+     * @author Patrick Forget <patforg at webtrendi.com>
      */
     public function testUnspecifiedArgumentNoValueDoesNotExist() {
         $argv = explode(" ", './test.php -v');
@@ -321,7 +321,7 @@ class CommandArgumentFilterTest extends PHPUnit_Framework_TestCase
     /**
      * test that short name options that accept values are not detected when not present
      *
-     * @author Patrick Forget <patforg at geekpad.ca>
+     * @author Patrick Forget <patforg at webtrendi.com>
      */
     public function testUnspecifiedArgumentThatAcceptValueDoesNotExist() {
         $argv = explode(" ", './test.php -v');
@@ -336,7 +336,7 @@ class CommandArgumentFilterTest extends PHPUnit_Framework_TestCase
     /**
      * test that program name is detected
      *
-     * @author Patrick Forget <patforg at geekpad.ca>
+     * @author Patrick Forget <patforg at webtrendi.com>
      */
     public function testProgramNameExtracted() {
         $argv = explode(" ", './test.php -v');
@@ -350,7 +350,7 @@ class CommandArgumentFilterTest extends PHPUnit_Framework_TestCase
     /**
      * test that program name is detected when no params are passed
      *
-     * @author Patrick Forget <patforg at geekpad.ca>
+     * @author Patrick Forget <patforg at webtrendi.com>
      */
     public function testProgramNameExtractedWithNoParameters() {
         $argv = explode(" ", './test.php');
@@ -364,7 +364,7 @@ class CommandArgumentFilterTest extends PHPUnit_Framework_TestCase
     /**
      * test single trailing value
      *
-     * @author Patrick Forget <patforg at geekpad.ca>
+     * @author Patrick Forget <patforg at webtrendi.com>
      */
     public function testSingleTrailingValue() {
         $argv = explode(" ", './test.php -v -h trailing');
@@ -378,7 +378,7 @@ class CommandArgumentFilterTest extends PHPUnit_Framework_TestCase
     /**
      * test many trailing value
      *
-     * @author Patrick Forget <patforg at geekpad.ca>
+     * @author Patrick Forget <patforg at webtrendi.com>
      */
     public function testMultipleTrailingValue() {
         $argv = explode(" ", './test.php -v -h many trailing');
@@ -392,7 +392,7 @@ class CommandArgumentFilterTest extends PHPUnit_Framework_TestCase
     /**
      * test single trailing value with double dash
      *
-     * @author Patrick Forget <patforg at geekpad.ca>
+     * @author Patrick Forget <patforg at webtrendi.com>
      */
     public function testSingleTrailingValueWithDoubleDash() {
         $argv = explode(" ", './test.php -v -h -- trailing');
@@ -406,7 +406,7 @@ class CommandArgumentFilterTest extends PHPUnit_Framework_TestCase
     /**
      * test no value after double dash
      *
-     * @author Patrick Forget <patforg at geekpad.ca>
+     * @author Patrick Forget <patforg at webtrendi.com>
      */
     public function testEmptyValueWithDoubleDash() {
         $argv = explode(" ", './test.php -v -h --');
@@ -420,7 +420,7 @@ class CommandArgumentFilterTest extends PHPUnit_Framework_TestCase
     /**
      * test many trailing value
      *
-     * @author Patrick Forget <patforg at geekpad.ca>
+     * @author Patrick Forget <patforg at webtrendi.com>
      */
     public function testMultipleTrailingValueWithDoubleDash() {
         $argv = explode(" ", './test.php -v -h -- many trailing');
@@ -436,7 +436,7 @@ class CommandArgumentFilterTest extends PHPUnit_Framework_TestCase
      *
      * @expectedException \UnexpectedValueException
      *
-     * @author Patrick Forget <patforg at geekpad.ca>
+     * @author Patrick Forget <patforg at webtrendi.com>
      */
     public function testTrailingValueBeforeDoubleDashIsNotAllowed() {
         $argv = explode(" ", './test.php -v -h beforedoubledash -- many trailing');
@@ -452,7 +452,7 @@ class CommandArgumentFilterTest extends PHPUnit_Framework_TestCase
      *
      * @expectedException \UnexpectedValueException
      *
-     * @author Patrick Forget <patforg at geekpad.ca>
+     * @author Patrick Forget <patforg at webtrendi.com>
      */
     public function testTrailingValueBetweenParametersIsNotAllowed() {
         $argv = explode(" ", './test.php --verbose beforedoubledash --help');
@@ -469,7 +469,7 @@ class CommandArgumentFilterTest extends PHPUnit_Framework_TestCase
      *
      * @expectedException \UnexpectedValueException
      *
-     * @author Patrick Forget <patforg at geekpad.ca>
+     * @author Patrick Forget <patforg at webtrendi.com>
      */
     public function testShortNameWithValueSetWithEqualSignIsNotAllowed() {
         $argv = explode(" ", './test.php -h=8');
@@ -485,7 +485,7 @@ class CommandArgumentFilterTest extends PHPUnit_Framework_TestCase
      *
      * @expectedException \UnexpectedValueException
      * 
-     * @author Patrick Forget <patforg at geekpad.ca>
+     * @author Patrick Forget <patforg at webtrendi.com>
      */
     public function testLongNameWithValueSetWithEqualSignIsNotAllowed() {
         $argv = explode(" ", './test.php --help=8');
@@ -501,7 +501,7 @@ class CommandArgumentFilterTest extends PHPUnit_Framework_TestCase
      *
      * @expectedException \UnexpectedValueException
      *
-     * @author Patrick Forget <patforg at geekpad.ca>
+     * @author Patrick Forget <patforg at webtrendi.com>
      */
     public function testShortNameWithValueSetWithSpaceIsNotAllowed() {
         $argv = explode(" ", './test.php -h 8 -v');
@@ -517,7 +517,7 @@ class CommandArgumentFilterTest extends PHPUnit_Framework_TestCase
      *
      * @expectedException \UnexpectedValueException
      * 
-     * @author Patrick Forget <patforg at geekpad.ca>
+     * @author Patrick Forget <patforg at webtrendi.com>
      */
     public function testLongNameWithValueSetWithSpaceIsNotAllowed() {
         $argv = explode(" ", './test.php --help 8 --verbose');
@@ -533,7 +533,7 @@ class CommandArgumentFilterTest extends PHPUnit_Framework_TestCase
      *
      * @expectedException \InvalidArgumentException
      *
-     * @author Patrick Forget <patforg at geekpad.ca>
+     * @author Patrick Forget <patforg at webtrendi.com>
      */
     public function testIllegalShortNameWithIsNotAllowed() {
         $argv = explode(" ", './test.php -w -h');
@@ -549,7 +549,7 @@ class CommandArgumentFilterTest extends PHPUnit_Framework_TestCase
      *
      * @expectedException \InvalidArgumentException
      * 
-     * @author Patrick Forget <patforg at geekpad.ca>
+     * @author Patrick Forget <patforg at webtrendi.com>
      */
     public function testIllegalLongNameWithIsNotAllowed() {
         $argv = explode(" ", './test.php --work --verbose');
@@ -565,7 +565,7 @@ class CommandArgumentFilterTest extends PHPUnit_Framework_TestCase
      *
      * @expectedException \UnexpectedValueException
      *
-     * @author Patrick Forget <patforg at geekpad.ca>
+     * @author Patrick Forget <patforg at webtrendi.com>
      */
     public function testShortNameMissingExpectedValueAsMiddleArgument() {
         $argv = explode(" ", './test.php -c -v');
@@ -581,7 +581,7 @@ class CommandArgumentFilterTest extends PHPUnit_Framework_TestCase
      *
      * @expectedException \UnexpectedValueException
      * 
-     * @author Patrick Forget <patforg at geekpad.ca>
+     * @author Patrick Forget <patforg at webtrendi.com>
      */
     public function testLongNameMissingExpectedValueAsMiddleArgument() {
         $argv = explode(" ", './test.php --count --verbose');
@@ -597,7 +597,7 @@ class CommandArgumentFilterTest extends PHPUnit_Framework_TestCase
      *
      * @expectedException \UnexpectedValueException
      *
-     * @author Patrick Forget <patforg at geekpad.ca>
+     * @author Patrick Forget <patforg at webtrendi.com>
      */
     public function testShortNameMissingExpectedValueAsLastArgument() {
         $argv = explode(" ", './test.php -v -c');
@@ -613,7 +613,7 @@ class CommandArgumentFilterTest extends PHPUnit_Framework_TestCase
      *
      * @expectedException \UnexpectedValueException
      * 
-     * @author Patrick Forget <patforg at geekpad.ca>
+     * @author Patrick Forget <patforg at webtrendi.com>
      */
     public function testLongNameMissingExpectedValueAsLastArgument() {
         $argv = explode(" ", './test.php --verbose --count');
@@ -629,7 +629,7 @@ class CommandArgumentFilterTest extends PHPUnit_Framework_TestCase
      *
      * @expectedException \UnexpectedValueException
      *
-     * @author Patrick Forget <patforg at geekpad.ca>
+     * @author Patrick Forget <patforg at webtrendi.com>
      */
     public function testShortNameMissingExpectedValueAsSingleArgument() {
         $argv = explode(" ", './test.php -c');
@@ -645,7 +645,7 @@ class CommandArgumentFilterTest extends PHPUnit_Framework_TestCase
      *
      * @expectedException \UnexpectedValueException
      * 
-     * @author Patrick Forget <patforg at geekpad.ca>
+     * @author Patrick Forget <patforg at webtrendi.com>
      */
     public function testLongNameMissingExpectedValueAsSingleArgument() {
         $argv = explode(" ", './test.php --count');
@@ -661,7 +661,7 @@ class CommandArgumentFilterTest extends PHPUnit_Framework_TestCase
      *
      * @expectedException \UnexpectedValueException
      *
-     * @author Patrick Forget <patforg at geekpad.ca>
+     * @author Patrick Forget <patforg at webtrendi.com>
      */
     public function testShortNameMultipleParameNotAllowed() {
         $argv = explode(" ", './test.php -h -h');
@@ -677,7 +677,7 @@ class CommandArgumentFilterTest extends PHPUnit_Framework_TestCase
      *
      * @expectedException \UnexpectedValueException
      * 
-     * @author Patrick Forget <patforg at geekpad.ca>
+     * @author Patrick Forget <patforg at webtrendi.com>
      */
     public function testLongNameMultipleParameNotAllowed() {
         $argv = explode(" ", './test.php --help --help');

@@ -2,7 +2,7 @@
 /**
  * Tests for CommandLineArgumentDefinition
  *
- * @author Patrick Forget <patforg at geekpad.ca>
+ * @author Patrick Forget <patforg at webtrendi.com>
  */
 
 class TestCommandLineArgumentDefinition extends \Clapp\CommandLineArgumentDefinition {
@@ -10,7 +10,7 @@ class TestCommandLineArgumentDefinition extends \Clapp\CommandLineArgumentDefini
     /**
      * make parseDefinitions publicly callable
      *
-     * @author Patrick Forget <patforg at geekpad.ca>
+     * @author Patrick Forget <patforg at webtrendi.com>
      */
     public function parseDefinitions() {
         parent::parseDefinitions();
@@ -22,7 +22,7 @@ class TestCommandLineArgumentDefinition extends \Clapp\CommandLineArgumentDefini
 /**
  * Tests for CommandLineArgumentDefinition
  *
- * @author Patrick Forget <patforg at geekpad.ca>
+ * @author Patrick Forget <patforg at webtrendi.com>
  */
 class CommandLineArgumentDefinitionTest extends PHPUnit_Framework_TestCase
 {
@@ -35,7 +35,7 @@ class CommandLineArgumentDefinitionTest extends PHPUnit_Framework_TestCase
     /**
      * setup some defaults
      *
-     * @author Patrick Forget <patforg at geekpad.ca>
+     * @author Patrick Forget <patforg at webtrendi.com>
      */
     public function setUp() {
         $this->defaultOptions = array(
@@ -55,7 +55,7 @@ class CommandLineArgumentDefinitionTest extends PHPUnit_Framework_TestCase
     /**
      * test we can get a param using it's long name.
      * 
-     * @author Patrick Forget <patforg at geekpad.ca>
+     * @author Patrick Forget <patforg at webtrendi.com>
      */
     public function testParamExistsUsingLongName() {
         $def = new \Clapp\CommandLineArgumentDefinition($this->defaultOptions);
@@ -70,7 +70,7 @@ class CommandLineArgumentDefinitionTest extends PHPUnit_Framework_TestCase
     /**
      * test we can get a param using it's short name.
      * 
-     * @author Patrick Forget <patforg at geekpad.ca>
+     * @author Patrick Forget <patforg at webtrendi.com>
      */
     public function testParamExistsUsingShortName() {
         $def = new \Clapp\CommandLineArgumentDefinition($this->defaultOptions);
@@ -85,7 +85,7 @@ class CommandLineArgumentDefinitionTest extends PHPUnit_Framework_TestCase
     /**
      * test that params that allow value reutnrs the right status when using it's long name
      *
-     * @author Patrick Forget <patforg at geekpad.ca>
+     * @author Patrick Forget <patforg at webtrendi.com>
      */
     public function testAllowValueUsingLongName() {
         $def = new \Clapp\CommandLineArgumentDefinition($this->defaultOptions);
@@ -102,7 +102,7 @@ class CommandLineArgumentDefinitionTest extends PHPUnit_Framework_TestCase
     /**
      * test that params that allow value reutnrs the right status when using it's short name
      *
-     * @author Patrick Forget <patforg at geekpad.ca>
+     * @author Patrick Forget <patforg at webtrendi.com>
      */
     public function testAllowValueUsingShortName() {
         $def = new \Clapp\CommandLineArgumentDefinition($this->defaultOptions);
@@ -119,7 +119,7 @@ class CommandLineArgumentDefinitionTest extends PHPUnit_Framework_TestCase
     /**
      * test that params that allow multiple instances reutnrs the right status when using it's long name
      *
-     * @author Patrick Forget <patforg at geekpad.ca>
+     * @author Patrick Forget <patforg at webtrendi.com>
      */
     public function testAllowMultipleUsingLongName() {
         $def = new \Clapp\CommandLineArgumentDefinition($this->defaultOptions);
@@ -136,7 +136,7 @@ class CommandLineArgumentDefinitionTest extends PHPUnit_Framework_TestCase
     /**
      * test that params that allow multiple instances reutnrs the right status when using it's short name
      *
-     * @author Patrick Forget <patforg at geekpad.ca>
+     * @author Patrick Forget <patforg at webtrendi.com>
      */
     public function testAllowMultipleUsingShortName() {
         $def = new \Clapp\CommandLineArgumentDefinition($this->defaultOptions);
@@ -153,7 +153,7 @@ class CommandLineArgumentDefinitionTest extends PHPUnit_Framework_TestCase
     /**
      * test that params that allow values reutnrs the right type when using it's long name
      *
-     * @author Patrick Forget <patforg at geekpad.ca>
+     * @author Patrick Forget <patforg at webtrendi.com>
      */
     public function testGetValueTypeUsingLongName() {
         $def = new \Clapp\CommandLineArgumentDefinition($this->defaultOptions);
@@ -172,7 +172,7 @@ class CommandLineArgumentDefinitionTest extends PHPUnit_Framework_TestCase
     /**
      * test that params retunrs the right description when using it's short name
      *
-     * @author Patrick Forget <patforg at geekpad.ca>
+     * @author Patrick Forget <patforg at webtrendi.com>
      */
     public function testGetDescriptionUsingShortName() {
         $def = new \Clapp\CommandLineArgumentDefinition($this->defaultOptions);
@@ -194,7 +194,7 @@ class CommandLineArgumentDefinitionTest extends PHPUnit_Framework_TestCase
     /**
      * test that params retunrs the right description when using it's long name
      *
-     * @author Patrick Forget <patforg at geekpad.ca>
+     * @author Patrick Forget <patforg at webtrendi.com>
      */
     public function testGetDescriptionUsingLongName() {
         $def = new \Clapp\CommandLineArgumentDefinition($this->defaultOptions);
@@ -213,7 +213,7 @@ class CommandLineArgumentDefinitionTest extends PHPUnit_Framework_TestCase
     /**
      * test that params that allow values reutnrs the right type when using it's short name
      *
-     * @author Patrick Forget <patforg at geekpad.ca>
+     * @author Patrick Forget <patforg at webtrendi.com>
      */
     public function testGetValueTypeUsingShortName() {
         $def = new \Clapp\CommandLineArgumentDefinition($this->defaultOptions);
@@ -234,7 +234,7 @@ class CommandLineArgumentDefinitionTest extends PHPUnit_Framework_TestCase
     /**
      * test that that the right short name is returned when using the long name
      *
-     * @author Patrick Forget <patforg at geekpad.ca>
+     * @author Patrick Forget <patforg at webtrendi.com>
      */
     public function testGetShortNameUsingLongName() {
         $def = new \Clapp\CommandLineArgumentDefinition($this->defaultOptions);
@@ -253,7 +253,7 @@ class CommandLineArgumentDefinitionTest extends PHPUnit_Framework_TestCase
     /**
      * test that that the right long name is returned when using the short name
      *
-     * @author Patrick Forget <patforg at geekpad.ca>
+     * @author Patrick Forget <patforg at webtrendi.com>
      */
     public function testGetLongNameUsingShortName() {
         $def = new \Clapp\CommandLineArgumentDefinition($this->defaultOptions);
@@ -274,7 +274,7 @@ class CommandLineArgumentDefinitionTest extends PHPUnit_Framework_TestCase
     /**
      * test that get usage is not empty
      * 
-     * @author Patrick Forget <patforg at geekpad.ca>
+     * @author Patrick Forget <patforg at webtrendi.com>
      */
     public function testGetUsageNotEmpty() {
         $def = new \Clapp\CommandLineArgumentDefinition($this->defaultOptions);
@@ -287,7 +287,7 @@ class CommandLineArgumentDefinitionTest extends PHPUnit_Framework_TestCase
      *
      * @expectedException UnexpectedValueException
      *
-     * @author Patrick Forget <patforg at geekpad.ca>
+     * @author Patrick Forget <patforg at webtrendi.com>
      */
     public function testInvalidDefinitionWithNoShortName() {
         $def = new TestCommandLineArgumentDefinition(array(
@@ -302,7 +302,7 @@ class CommandLineArgumentDefinitionTest extends PHPUnit_Framework_TestCase
      *
      * @expectedException UnexpectedValueException
      *
-     * @author Patrick Forget <patforg at geekpad.ca>
+     * @author Patrick Forget <patforg at webtrendi.com>
      */
     public function testInvalidDefinitionWithShortNameNotSingleChar() {
         $def = new TestCommandLineArgumentDefinition(array(
@@ -317,7 +317,7 @@ class CommandLineArgumentDefinitionTest extends PHPUnit_Framework_TestCase
      *
      * @expectedException UnexpectedValueException
      *
-     * @author Patrick Forget <patforg at geekpad.ca>
+     * @author Patrick Forget <patforg at webtrendi.com>
      */
     public function testInvalidDefinitionWithNonExistantValueType() {
         $def = new TestCommandLineArgumentDefinition(array(
@@ -332,7 +332,7 @@ class CommandLineArgumentDefinitionTest extends PHPUnit_Framework_TestCase
      *
      * @expectedException UnexpectedValueException
      *
-     * @author Patrick Forget <patforg at geekpad.ca>
+     * @author Patrick Forget <patforg at webtrendi.com>
      */
     public function testInvalidDefinitionMisplacedMultipleChar() {
         $def = new TestCommandLineArgumentDefinition(array(
@@ -348,7 +348,7 @@ class CommandLineArgumentDefinitionTest extends PHPUnit_Framework_TestCase
      *
      * @expectedException UnexpectedValueException
      *
-     * @author Patrick Forget <patforg at geekpad.ca>
+     * @author Patrick Forget <patforg at webtrendi.com>
      */
     public function testInvalidDefinitionDuplicateLongName() {
         $def = new TestCommandLineArgumentDefinition(array(
@@ -364,7 +364,7 @@ class CommandLineArgumentDefinitionTest extends PHPUnit_Framework_TestCase
      *
      * @expectedException UnexpectedValueException
      *
-     * @author Patrick Forget <patforg at geekpad.ca>
+     * @author Patrick Forget <patforg at webtrendi.com>
      */
     public function testInvalidDefinitionDuplicateShortName() {
         $def = new TestCommandLineArgumentDefinition(array(

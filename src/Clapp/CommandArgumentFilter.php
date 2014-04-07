@@ -2,7 +2,7 @@
 /**
  * Filters an array and extracts and validates command line arguments
  *
- * @author Patrick Forget <patforg at geekpad.ca>
+ * @author Patrick Forget <patforg at webtrendi.com>
  */
 
 namespace Clapp;
@@ -10,7 +10,7 @@ namespace Clapp;
 /**
  * Filters an array and extracts and validates command line arguments
  *
- * @author Patrick Forget <patforg at geekpad.ca>
+ * @author Patrick Forget <patforg at webtrendi.com>
  */
 class CommandArgumentFilter
 {
@@ -53,7 +53,7 @@ class CommandArgumentFilter
     /**
      * class constructor
      *
-     * @author Patrick Forget <patforg at geekpad.ca>
+     * @author Patrick Forget <patforg at webtrendi.com>
      * 
      * @param \Clapp\CommandLineDefinition $definitions contains list of allowed parameters
      * @param array $args list of arguments to filter. 
@@ -69,7 +69,7 @@ class CommandArgumentFilter
     /**
      * returns parameter matching provided name
      *
-     * @author Patrick Forget <patforg at geekpad.ca>
+     * @author Patrick Forget <patforg at webtrendi.com>
      *
      * @param string name of the paramter to retreive
      *
@@ -105,7 +105,7 @@ class CommandArgumentFilter
     /**
      * retreive the program name
      *
-     * @author Patrick Forget <patforg at geekpad.ca>
+     * @author Patrick Forget <patforg at webtrendi.com>
      */
     public function getProgramName() {
         if (!$this->parsed) {
@@ -118,7 +118,7 @@ class CommandArgumentFilter
     /**
      * retreive the trailing values
      *
-     * @author Patrick Forget <patforg at geekpad.ca>
+     * @author Patrick Forget <patforg at webtrendi.com>
      */
     public function getTrailingValues() {
         if (!$this->parsed) {
@@ -131,7 +131,7 @@ class CommandArgumentFilter
     /**
      * extracts params from arguments
      *
-     * @author Patrick Forget <patforg at geekpad.ca>
+     * @author Patrick Forget <patforg at webtrendi.com>
      */
     protected function parseParams() {
 

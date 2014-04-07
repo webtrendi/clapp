@@ -2,7 +2,7 @@
 /**
  * Defines list and formats of command line arguments
  *
- * @author Patrick Forget <patforg at geekpad.ca>
+ * @author Patrick Forget <patforg at webtrendi.com>
  */
 
 namespace Clapp;
@@ -10,7 +10,7 @@ namespace Clapp;
 /**
  * Defines list and formats of command line arguments
  *
- * @author Patrick Forget <patforg at geekpad.ca>
+ * @author Patrick Forget <patforg at webtrendi.com>
  */
 class CommandLineArgumentDefinition
 {
@@ -47,7 +47,7 @@ class CommandLineArgumentDefinition
     /**
      * class constructor
      *
-     * @author Patrick Forget <patforg at geekpad.ca>
+     * @author Patrick Forget <patforg at webtrendi.com>
      *
      * @param array $definitions contains list of allowed parameters
      *     the key is the long name of the parameter followed by a pipe (|)
@@ -74,7 +74,7 @@ class CommandLineArgumentDefinition
     /**
      * checks if parameter is allowed
      *
-     * @author Patrick Forget <patforg at geekpad.ca>
+     * @author Patrick Forget <patforg at webtrendi.com>
      *
      * @param string $name either short or long name of the parameter to check
      *
@@ -96,7 +96,7 @@ class CommandLineArgumentDefinition
     /**
      * checks if parameter allows a value if so what type
      *
-     * @author Patrick Forget <patforg at geekpad.ca>
+     * @author Patrick Forget <patforg at webtrendi.com>
      * 
      * @param string $name either short or long name of the parameter to check
      *
@@ -119,7 +119,7 @@ class CommandLineArgumentDefinition
     /**
      * returns the type of value allowed
      *
-     * @author Patrick Forget <patforg at geekpad.ca>
+     * @author Patrick Forget <patforg at webtrendi.com>
      */
     public function getValueType($name) {
         if (!$this->isParsed) {
@@ -139,7 +139,7 @@ class CommandLineArgumentDefinition
     /**
      * checks if pamultiple instance of parameter are allowed
      *
-     * @author Patrick Forget <patforg at geekpad.ca>
+     * @author Patrick Forget <patforg at webtrendi.com>
      * 
      * @param string $name either short or long name of the parameter to check
      *
@@ -162,7 +162,7 @@ class CommandLineArgumentDefinition
     /**
      * retreive short name of a parameter using its long name
      *
-     * @author Patrick Forget <patforg at geekpad.ca>
+     * @author Patrick Forget <patforg at webtrendi.com>
      *
      * @param string $name long name of the parameter to check
      *
@@ -183,7 +183,7 @@ class CommandLineArgumentDefinition
     /**
      * retreive long name of a parameter using its short name
      *
-     * @author Patrick Forget <patforg at geekpad.ca>
+     * @author Patrick Forget <patforg at webtrendi.com>
      *
      * @param string $name short name of the parameter to check
      *
@@ -204,7 +204,7 @@ class CommandLineArgumentDefinition
     /**
      * retreive description of a paramter
      *
-     * @author Patrick Forget <patforg at geekpad.ca>
+     * @author Patrick Forget <patforg at webtrendi.com>
      *
      * @param string $name either short or long name of the parameter to check
      *
@@ -227,7 +227,7 @@ class CommandLineArgumentDefinition
     /**
      * builds a usage definition based on definition of params
      *
-     * @author Patrick Forget <patforg at geekpad.ca>
+     * @author Patrick Forget <patforg at webtrendi.com>
      */
     public function getUsage() {
         if (!$this->isParsed) {
@@ -285,7 +285,7 @@ class CommandLineArgumentDefinition
     /**
      * parses the definitions
      *
-     * @author Patrick Forget <patforg at geekpad.ca>
+     * @author Patrick Forget <patforg at webtrendi.com>
      */
     protected function parseDefinitions() {
         foreach ($this->definitions as $nameDef => $description) {

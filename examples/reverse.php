@@ -4,7 +4,7 @@
  * Reverse the text of a given message
  * 
  * @since  2014-04-04
- * @author Patrick Forget <patforg@geekpad.ca>
+ * @author Patrick Forget <patforg at webtrendi.com>
  */
 
 /* Composer autloader  */
