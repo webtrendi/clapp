@@ -1,3 +1,32 @@
 # CLAPP: Command Line Argument Parser For PHP 
 
-Parses command line arguments passed to a PHP script
+Parses command line arguments passed to a PHP script.  
+
+## Usage
+
+```PHP
+
+// Define accepted arguments
+$definitions = new \Clapp\CommandLineArgumentDefinition(array(
+    "help|h"      => "Shows help message",
+    "message|m=s" => "Input message",
+    "verbose|v+"  => "Set level of verbose output",
+));
+
+// Filter arguments based and validate according to definitions
+$filter = new \Clapp\CommandArgumentFilter($definitions, $argv);
+
+// Retrieve parameter if set
+if ($filter->getParam('h') !== null) {
+    echo "Need help";
+} //if
+```
+## Features
+
+* Simple definition syntax 
+* Supports long and short arugment names
+* Supports repeated arguments
+* Supports multiple short arguments
+* Supports 2 ways of setting values
+* Supports double dash delimiter for trailing values
+
