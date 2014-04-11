@@ -29,4 +29,5 @@ if ($filter->getParam('h') !== null) {
 * Supports multiple short arguments (-abc equivalent of -a -b -c)
 * Supports 2 ways of setting values (--name=bob or --name bob)
 * Supports double dash delimiter for trailing values
+* Creates detailed usage documentation using definitions
 
