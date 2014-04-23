@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit bootstrap="./vendor/autoload.php" colors="false">
+    <testsuites>
+        <testsuite name="Clapp Test Suite">
+            <directory>tests/Clapp/</directory>
+        </testsuite>
+    </testsuites>
+    <logging>
+        <log type="coverage-text" target="php://stdout" showUncoveredFiles="false"/>
+    </logging>
+    <filter>
+        <whitelist>
+            <directory suffix=".php">src/Clapp/</directory>
+        </whitelist>
+    </filter>
+</phpunit>
