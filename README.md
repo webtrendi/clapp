@@ -17,7 +17,7 @@ $definitions = new \Clapp\CommandLineArgumentDefinition(array(
 $filter = new \Clapp\CommandArgumentFilter($definitions, $argv);
 
 // Retrieve parameter if set
-if ($filter->getParam('h') !== null) {
+if ($filter->getParam('h') !== false) {
     echo "Need help";
 } //if
 ```
