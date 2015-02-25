@@ -25,9 +25,10 @@ class CommandLineArgumentDefinition
      *
      * properties are as follows
      * * string "shortName" one letter char to the corresponding short name
-     * * boolean "isMultipleAllowed" true if mutliple instances of the param are allowed 
-     * * mixed "parameterType" false if paramters are not alloweda value, otherwise a string with the value "integer" or "string"
-     * * string "description" description of the parameter 
+     * * boolean "isMultipleAllowed" true if mutliple instances of the param are allowed
+     * * mixed "parameterType" false if paramters are not alloweda value,
+     *       otherwise a string with the value "integer" or "string"
+     * * string "description" description of the parameter
      * @var array
      */
     private $longNames = array();
@@ -51,21 +52,22 @@ class CommandLineArgumentDefinition
      *
      * @param array $definitions contains list of allowed parameters
      *     the key is the long name of the parameter followed by a pipe (|)
-     *     then a single character specifying the short name. 
-     *     
+     *     then a single character specifying the short name.
+     *
      *     If the parameter allows for arguments then an equal sign (=)
-     *     follows and then the type of paramter. 
-     *     
+     *     follows and then the type of paramter.
+     *
      *     Allowed types are either i, int or integer for integer  types
      *     and s, str or string for string types.
      *
-     *     If a parameter can appear more than once the last character of 
+     *     If a parameter can appear more than once the last character of
      *     the key should be a plus character (+).
      *
      *     The value of the entry is the definition of what the paramter
      *     does.
      */
-    public function __construct($definitions) {
+    public function __construct($definitions)
+    {
         if (is_array($definitions)) {
             $this->definitions = $definitions;
         } //if
@@ -80,7 +82,8 @@ class CommandLineArgumentDefinition
      *
      * @return boolean true if definition exisits, false otherwise
      */
-    public function paramExists($name) {
+    public function paramExists($name)
+    {
         if (!$this->isParsed) {
             $this->parseDefinitions();
         } //if
@@ -97,12 +100,13 @@ class CommandLineArgumentDefinition
      * checks if parameter allows a value if so what type
      *
      * @author Patrick Forget <patforg at webtrendi.com>
-     * 
+     *
      * @param string $name either short or long name of the parameter to check
      *
      * @return boolean|string false doesn't allow value, The value "string" or "integer" depending which type it allows
      */
-    public function allowsValue($name) {
+    public function allowsValue($name)
+    {
         if (!$this->isParsed) {
             $this->parseDefinitions();
         } //if
@@ -121,14 +125,16 @@ class CommandLineArgumentDefinition
      *
      * @author Patrick Forget <patforg at webtrendi.com>
      */
-    public function getValueType($name) {
+    public function getValueType($name)
+    {
         if (!$this->isParsed) {
             $this->parseDefinitions();
         } //if
 
         $longName = (strlen($name) == 1 ? ( isset($this->shortNames[$name]) ? $this->shortNames[$name] : '') : $name);
 
-        if (isset($this->longNames[$longName]['parameterType']) && $this->longNames[$longName]['parameterType'] !== false) {
+        if (isset($this->longNames[$longName]['parameterType'])
+            && $this->longNames[$longName]['parameterType'] !== false) {
             return $this->longNames[$longName]['parameterType'];
         } else {
             return '';
@@ -140,12 +146,13 @@ class CommandLineArgumentDefinition
      * checks if pamultiple instance of parameter are allowed
      *
      * @author Patrick Forget <patforg at webtrendi.com>
-     * 
+     *
      * @param string $name either short or long name of the parameter to check
      *
      * @return boolean false if parameter doesn't allow multiple values, true if it does
      */
-    public function allowsMultiple($name) {
+    public function allowsMultiple($name)
+    {
         if (!$this->isParsed) {
             $this->parseDefinitions();
         } //if
@@ -168,7 +175,8 @@ class CommandLineArgumentDefinition
      *
      * @return string character of the short name or null if it doesn't exist
      */
-    public function getShortName($name) {
+    public function getShortName($name)
+    {
         if (!$this->isParsed) {
             $this->parseDefinitions();
         } //if
@@ -189,7 +197,8 @@ class CommandLineArgumentDefinition
      *
      * @return string long name or null if it doesn't exist
      */
-    public function getLongName($name) {
+    public function getLongName($name)
+    {
         if (!$this->isParsed) {
             $this->parseDefinitions();
         } //if
@@ -210,7 +219,8 @@ class CommandLineArgumentDefinition
      *
      * @return string description or null if it doesn't exist
      */
-    public function getDescription($name) {
+    public function getDescription($name)
+    {
         if (!$this->isParsed) {
             $this->parseDefinitions();
         } //if
@@ -229,12 +239,13 @@ class CommandLineArgumentDefinition
      *
      * @author Patrick Forget <patforg at webtrendi.com>
      */
-    public function getUsage() {
+    public function getUsage()
+    {
         if (!$this->isParsed) {
             $this->parseDefinitions();
         } //if
 
-        /* build list of argument names and calculate 
+        /* build list of argument names and calculate
            the first column width so we can pad to 
            align definitions */
         $firstCol = array();
@@ -251,9 +262,9 @@ class CommandLineArgumentDefinition
                 echo "+";
             } //if
 
-            $defLenght = ob_get_length();
+            $defLength = ob_get_length();
 
-            $longestDef = max($longestDef, ob_get_length());
+            $longestDef = max($longestDef, $defLength);
 
             $firstCol[$longName] = ob_get_contents();
             ob_end_clean();
@@ -287,7 +298,8 @@ class CommandLineArgumentDefinition
      *
      * @author Patrick Forget <patforg at webtrendi.com>
      */
-    protected function parseDefinitions() {
+    protected function parseDefinitions()
+    {
         foreach ($this->definitions as $nameDef => $description) {
             $nameParts = explode("|", $nameDef);
 
@@ -304,7 +316,7 @@ class CommandLineArgumentDefinition
             if ($shortNameLength == 1) {
                 $shortName = $nameParts[1];
             } else {
-                $secondChar = substr($nameParts[1], 1,1);
+                $secondChar = substr($nameParts[1], 1, 1);
 
                 switch ($secondChar) {
                     case '=':
@@ -330,17 +342,19 @@ class CommandLineArgumentDefinition
                                 $parameterType = 'string';
                                 break;
                             default:
-                                throw new \UnexpectedValueException("Expecting parameter type to be either integer or string");
+                                throw new \UnexpectedValueException("Expecting parameter type".
+                                   " to be either integer or string");
                                 break;
                         } //switch
 
                         break;
                     case '+':
                         if ($shortNameLength > 2) {
-                            throw new \UnexpectedValueException("Multiple flag charachter (+) should be last character in definition");
+                            throw new \UnexpectedValueException("Multiple flag charachter (+)".
+                               " should be last character in definition");
                         } //if
 
-                        $shortName = substr($nameParts[1], 0,1);
+                        $shortName = substr($nameParts[1], 0, 1);
                         $isMulti = true;
 
                         break;
@@ -372,5 +386,4 @@ class CommandLineArgumentDefinition
 
         $this->isParsed = true;
     } // parseDefinitions()
-    
-} // CommandLineArgumentDefinition class
+}

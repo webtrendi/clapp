@@ -54,11 +54,12 @@ class CommandArgumentFilter
      * class constructor
      *
      * @author Patrick Forget <patforg at webtrendi.com>
-     * 
+     *
      * @param \Clapp\CommandLineDefinition $definitions contains list of allowed parameters
-     * @param array $args list of arguments to filter. 
+     * @param array $args list of arguments to filter.
      */
-    public function __construct(\Clapp\CommandLineArgumentDefinition $definitions, $args) {
+    public function __construct(\Clapp\CommandLineArgumentDefinition $definitions, $args)
+    {
         if (is_array($args)) {
             $this->arguments = $args;
         } //if
@@ -73,18 +74,19 @@ class CommandArgumentFilter
      *
      * @param string name of the paramter to retreive
      *
-     * @return mixed if param the param appears only once the method will 
-     *     return 1 if the parameter doesn't take a value. The specified value 
+     * @return mixed if param the param appears only once the method will
+     *     return 1 if the parameter doesn't take a value. The specified value
      *     for that param will returned if it does take value.
-     *     
-     *     If many occurence of the param appear the number of occurences will 
-     *     be returned for params that do not take values. An array of values 
+     *
+     *     If many occurence of the param appear the number of occurences will
+     *     be returned for params that do not take values. An array of values
      *     will be returned for the parameters that do take values.
      *
-     *     If the parameter is not present null if it takes a value and false if 
+     *     If the parameter is not present null if it takes a value and false if
      *     it's not present and doesn't allow values
      */
-    public function getParam($name) {
+    public function getParam($name)
+    {
         if (!$this->parsed) {
             $this->parseParams();
         } //if
@@ -107,7 +109,8 @@ class CommandArgumentFilter
      *
      * @author Patrick Forget <patforg at webtrendi.com>
      */
-    public function getProgramName() {
+    public function getProgramName()
+    {
         if (!$this->parsed) {
             $this->parseParams();
         } //if
@@ -120,7 +123,8 @@ class CommandArgumentFilter
      *
      * @author Patrick Forget <patforg at webtrendi.com>
      */
-    public function getTrailingValues() {
+    public function getTrailingValues()
+    {
         if (!$this->parsed) {
             $this->parseParams();
         } //if
@@ -133,7 +137,8 @@ class CommandArgumentFilter
      *
      * @author Patrick Forget <patforg at webtrendi.com>
      */
-    protected function parseParams() {
+    protected function parseParams()
+    {
 
         $argumentStack = $this->arguments;
 
@@ -152,8 +157,8 @@ class CommandArgumentFilter
             $argumentsLeft--;
             $currentArgumentLength = strlen($currentArgument);
 
-            if (substr($currentArgument, 0,1) !== '-') { // arguments that don't start with a dash
-
+            // arguments that don't start with a dash
+            if (substr($currentArgument, 0, 1) !== '-') {
                 if ($expectingValue) {
                     $currentValue = $currentArgument;
                     $addParam = true;
@@ -162,16 +167,15 @@ class CommandArgumentFilter
                     $endOfDashedArguments = true;
                 } //if
 
-            } elseif (substr($currentArgument, 1,1)  === '-') { // double dash detected
-
+            // double dash detected
+            } elseif (substr($currentArgument, 1, 1)  === '-') {
                 if ($expectingValue) {
                     throw new \UnexpectedValueException("Parameter {$currentLongName} expects a values");
                 } //if
 
-                /* stop parsing arguments if double dash 
+                /* stop parsing arguments if double dash
                    only param is encountered  */
                 if ($currentArgumentLength == 2) {
-
                     if ($trailingValues !== "") {
                         throw new \UnexpectedValueException("Trailing values must appear after double dash");
                     } //if
@@ -195,8 +199,8 @@ class CommandArgumentFilter
                     $addParam = true;
                 } //if
 
-            } else { // single dash 
-
+            // single dash
+            } else {
                 if ($expectingValue) {
                     throw new \UnexpectedValueException("Parameter {$currentLongName} expects a values");
                 } //if
@@ -209,7 +213,8 @@ class CommandArgumentFilter
                     $currentLongName = $this->definitions->getLongName($shortName);
 
                     if ($currentLongName === null) {
-                        throw new \InvalidArgumentException("Unable to find name with provided parameter ({$shortName})");
+                        throw new \InvalidArgumentException("Unable to find name with ".
+                            "provided parameter ({$shortName})");
                     } //if
 
                     if (sizeof($shortNameParts) > 1) {
@@ -222,7 +227,6 @@ class CommandArgumentFilter
                     } //if
 
                 } else {
-
                     $multiShortParams = str_split($shortName);
 
                     /* process the last one (which is the only one that can have a value) */
@@ -242,7 +246,6 @@ class CommandArgumentFilter
             } //if
 
             if ($addParam) {
-
                 if ($endOfDashedArguments) {
                     throw new \UnexpectedValueException("Unexpected argument after undashed values");
                 } //if
@@ -266,7 +269,6 @@ class CommandArgumentFilter
                 } //if
 
                 if ($allowsValue) {
-
                     /* Missing values should always be detected before addParam is true */
                     // @codeCoverageIgnoreStart
                     if ($currentValue === null) {
@@ -282,9 +284,7 @@ class CommandArgumentFilter
                 } //if
 
                 if ($allowsMultiple) {
-
                     if ($allowsValue) {
-
                         if (!isset($this->params[$currentLongName])) {
                             $this->params[$currentLongName] = array();
                         } //if
@@ -292,7 +292,6 @@ class CommandArgumentFilter
                         $this->params[$currentLongName][] = $currentValue;
 
                     } else {
-
                         if (!isset($this->params[$currentLongName])) {
                             $this->params[$currentLongName] = 0;
                         } //if
@@ -300,7 +299,6 @@ class CommandArgumentFilter
                         $this->params[$currentLongName]++;
 
                     } //if
-
 
                 } else {
                     $this->params[$currentLongName] = $currentValue;
@@ -322,27 +320,24 @@ class CommandArgumentFilter
 
         } //while
 
-        if ($expectingValue !== false ) {
+        if ($expectingValue !== false) {
             throw new \UnexpectedValueException("Parameter {$currentLongName} expects a values");
         } //if
 
         /* Not sure how this could happen */
         // @codeCoverageIgnoreStart
-        if (
-            $currentLongName !== null || 
+        if ($currentLongName !== null ||
             $addParam !== false ||
             $currentValue !== null ||
-            sizeof($multiShortParams) !== 0
-        ) {
+            sizeof($multiShortParams) !== 0) {
             throw new \UnexpectedValueException("Unable to process some parameters");
         } //if
         // @codeCoverageIgnoreEnd
 
         if ($trailingValues !== "") {
-            $this->trailingValues = substr($trailingValues,1); // remove extra space at the begging
+            $this->trailingValues = substr($trailingValues, 1); // remove extra space at the begging
         } //if
 
         $this->parsed = true;
     } // parseParams()
-    
-} // CommandArgumentFilter class
+}

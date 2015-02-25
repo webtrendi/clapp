@@ -2,7 +2,7 @@
 <?php
 /**
  * Reverse the text of a given message
- * 
+ *
  * @since  2014-04-04
  * @author Patrick Forget <patforg at webtrendi.com>
  */
@@ -35,9 +35,7 @@ if ($message !== null) {
 
 /* Show character count */
 if ($filter->getParam("character-count") !== false) {
-    
     echo "Message length: ";
     echo ($message === null ? 0 : strlen($message) );
     echo PHP_EOL;
-
 } //if
