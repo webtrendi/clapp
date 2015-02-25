@@ -22,7 +22,7 @@ class CommandArgumentFilter
     
     /**
      * Definition of allowed parameters
-     * @var \Clapp\CommandLineDefinition
+     * @var \Clapp\CommandLineArgumentDefinition
      */
     private $definitions = null;
 
