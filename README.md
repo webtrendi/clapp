@@ -19,7 +19,8 @@ $filter = new \Clapp\CommandArgumentFilter($definitions, $argv);
 
 // Retrieve parameter if set
 if ($filter->getParam('h') !== false) {
-    echo "Need help";
+    echo $definitions->getUsage();
+    exit();
 } //if
 ```
 ## Features
