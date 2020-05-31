@@ -19,6 +19,12 @@ class CommandArgumentFilter
      * @var array
      */
     private $arguments = array();
+
+    /**
+     * Additional options
+     * @var array
+     */
+    private $options = array();
     
     /**
      * Definition of allowed parameters
@@ -43,6 +49,12 @@ class CommandArgumentFilter
      * @var string
      */
     private $trailingValues = "";
+
+    /**
+     * Floating values
+     * @var array
+     */
+    private $floatingValues = array();
     
     /**
      * program name
@@ -57,12 +69,18 @@ class CommandArgumentFilter
      *
      * @param \Clapp\CommandLineDefinition $definitions contains list of allowed parameters
      * @param array $args list of arguments to filter.
+     * @param array $options additional options
      */
-    public function __construct(\Clapp\CommandLineArgumentDefinition $definitions, $args)
+    public function __construct(\Clapp\CommandLineArgumentDefinition $definitions, $args, $options = array())
     {
         if (is_array($args)) {
             $this->arguments = $args;
         } //if
+
+        $this->options = array_merge(array(
+          'allowFloatingValues' => false,
+          'ignoreUnknownOptions' => false
+        ), $options);
 
         $this->definitions = $definitions;
     } // __construct()
@@ -133,6 +151,20 @@ class CommandArgumentFilter
     } // getTrailingValues()
 
     /**
+     * retreive the floating values
+     *
+     * @author Patrick Forget <patforg at webtrendi.com>
+     */
+    public function getFloatingValues()
+    {
+        if (!$this->parsed) {
+            $this->parseParams();
+        } //if
+
+        return $this->floatingValues;
+    } // getFloatingValues()
+
+    /**
      * extracts params from arguments
      *
      * @author Patrick Forget <patforg at webtrendi.com>
@@ -162,6 +194,8 @@ class CommandArgumentFilter
                 if ($expectingValue) {
                     $currentValue = $currentArgument;
                     $addParam = true;
+                } else if ($this->options['allowFloatingValues']) {
+                  $this->floatingValues[] = $currentArgument;
                 } else {
                     $trailingValues .= " ". $currentArgument;
                     $endOfDashedArguments = true;
@@ -213,8 +247,13 @@ class CommandArgumentFilter
                     $currentLongName = $this->definitions->getLongName($shortName);
 
                     if ($currentLongName === null) {
+                      if ($this->options['ignoreUnknownOptions']) {
+                        // set parameter name to a value that can't be provided by the user
+                        $currentLongName = NAN;
+                      } else {
                         throw new \InvalidArgumentException("Unable to find name with ".
                             "provided parameter ({$shortName})");
+                      } // if
                     } //if
 
                     if (sizeof($shortNameParts) > 1) {
@@ -257,14 +296,16 @@ class CommandArgumentFilter
                 } //if
                 // @codeCoverageIgnoreEnd
 
-                if (!$this->definitions->paramExists($currentLongName)) {
+                if (!$this->options['ignoreUnknownOptions']) {
+                  if (!$this->definitions->paramExists($currentLongName)) {
                     throw new \InvalidArgumentException("Invalid argument name");
+                  } //if
                 } //if
 
                 $allowsMultiple = $this->definitions->allowsMultiple($currentLongName);
                 $allowsValue = $this->definitions->allowsValue($currentLongName);
 
-                if (isset($this->params[$currentLongName]) && !$allowsMultiple) {
+                if (isset($this->params[$currentLongName]) && !$allowsMultiple && !is_nan($currentLongName)) {
                     throw new \UnexpectedValueException("Multiple instace of parameter {$currentLongName} not allowed");
                 } //if
 
